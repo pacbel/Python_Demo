@@ -24,6 +24,12 @@ RUN python -m pip install --upgrade pip \
 # Copia o restante do código do projeto
 COPY . .
 
+# Prepara entrypoint para aplicar migrations antes de iniciar o servidor
+RUN chmod +x /app/entrypoint.sh
+
+# Define o entrypoint padrão
+ENTRYPOINT ["/app/entrypoint.sh"]
+
 # Porta padrão do Django
 EXPOSE 8000
 
