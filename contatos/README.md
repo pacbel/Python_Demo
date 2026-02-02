@@ -125,3 +125,6 @@ contatos/
 1. Implementar autenticação caso deseje restringir acesso.
 2. Adicionar testes automatizados em `contatos_api/tests.py`.
 3. Configurar deploy (Docker, ambientes na nuvem, etc.) conforme necessidade.
+
+
+URL Produção Teste : https://internos-python.cyunin.easypanel.host/docs/swagger/
