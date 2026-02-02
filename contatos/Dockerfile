@@ -24,6 +24,9 @@ RUN python -m pip install --upgrade pip \
 # Copia o restante do código do projeto
 COPY . .
 
+# Coleta os arquivos estáticos usando Whitenoise
+RUN python manage.py collectstatic --noinput
+
 # Prepara entrypoint para aplicar migrations antes de iniciar o servidor
 RUN chmod +x /app/entrypoint.sh
 
