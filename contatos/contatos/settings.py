@@ -28,6 +28,15 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() == 'true'
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(',') if os.environ.get('DJANGO_ALLOWED_HOSTS') else []
 
+CSRF_TRUSTED_ORIGINS = (
+    os.environ.get('DJANGO_CSRF_TRUSTED_ORIGINS', '').split(',')
+    if os.environ.get('DJANGO_CSRF_TRUSTED_ORIGINS')
+    else []
+)
+
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 # Application definition
 
@@ -139,6 +148,7 @@ SWAGGER_SETTINGS = {
     'USE_SESSION_AUTH': False,
     'JSON_EDITOR': True,
     'DEFAULT_MODEL_RENDERING': 'example',
+    'DEFAULT_API_URL': os.environ.get('DJANGO_SWAGGER_DEFAULT_API_URL', 'http://localhost:8000/api/'),
 }
 
 
